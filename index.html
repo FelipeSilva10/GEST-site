@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEST - Sistema de Gestão de Estoque</title>
+    <style>
+        :root {
+            --primary-color: #0969da;
+            --primary-hover: #074fa8;
+            --bg-color: #f6f8fa;
+            --text-main: #24292f;
+            --text-muted: #57606a;
+            --white: #ffffff;
+            --border: #d0d7de;
+            --shadow: 0 3px 6px rgba(140, 149, 159, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espaço entre a imagem e o texto GEST */
+            font-style: italic;
+        }
+        
+        /* REGRA NOVA: Controla o tamanho da logo APENAS no cabeçalho */
+        header .logo img {
+            height: 32px; /* Tamanho adequado para navbar */
+            width: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #24292f;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-github:hover {
+            background-color: #434a54;
+            color: white;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            background-color: #f3f4f6;
+        }
+
+        /* FEATURES GRID */
+        .features {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* SCREENSHOT PREVIEW */
+        .preview-container {
+            margin: 3rem auto 0;
+            max-width: 900px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid var(--border);
+        }
+        
+        .preview-container img {
+            width: 80%;
+            display: block;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background-color: var(--white);
+            border-top: 1px solid var(--border);
+        }
+        
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .icon { font-size: 1.2rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            header { flex-direction: column; gap: 15px; }
+            nav { margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo_GEST.png" alt="GEST>
+        </div>
+        <nav>
+            <a href="#funcionalidades">Funcionalidades</a>
+            <a href="#sobre">Sobre</a>
+            <a href="https://github.com/alexanderdimarcus/gest" target="_blank" class="btn-github">
+                <span>GitHub</span>
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Controle seu estoque com simplicidade</h1>
+        <p>
+            O GEST é a solução ideal para pequenas empresas. 
+            Gerencie produtos, fornecedores e vendas em uma interface moderna e intuitiva.
+            Compatível com Windows e Linux.
+        </p>
+
+        <div class="download-group">
+            <a href="#" class="btn-download">
+                <span class="icon">🪟</span> Baixar para Windows (.exe)
+            </a>
+            <a href="#" class="btn-download btn-secondary">
+                <span class="icon">🐧</span> Baixar para Linux (.AppImage)
+            </a>
+        </div>
+
+        <div class="preview-container">
+            <img src="dashboard.png" alt="Interface do Sistema GEST">
+        </div>
+    </section>
+
+    <section id="funcionalidades" class="features">
+        <div class="container">
+            <h2 class="section-title">Por que escolher o GEST?</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>📦 Controle Total</h3>
+                    <p>Cadastre produtos perecíveis, eletrônicos e cosméticos com campos específicos. Acompanhe validade e garantias.</p>
+                </div>
+                <div class="card">
+                    <h3>📊 Dashboard Inteligente</h3>
+                    <p>Visualize indicadores de estoque crítico, valor total armazenado e projeção de lucros diretamente na tela inicial.</p>
+                </div>
+                <div class="card">
+                    <h3>🔐 Segurança</h3>
+                    <p>Sistema de login robusto para garantir que apenas usuários autorizados acessem os dados da sua empresa.</p>
+                </div>
+                <div class="card">
+                    <h3>🤝 Gestão de Fornecedores</h3>
+                    <p>Mantenha um registro organizado de todos os seus parceiros comerciais e contatos em um só lugar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="container" style="padding: 2rem 2rem; text-align: center;">
+        <img src="logoG.png" alt="GEST" style="height: 50px; margin-bottom: 10px;">
+        <h2 style="margin-bottom: 0.5rem;">Desenvolvimento</h2>
+        <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto;">
+            Desenvolvido utilizando <strong>Java 21</strong>, <strong>JavaFX</strong> e <strong>PostgreSQL</strong>.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GEST Project. Distribuído sob licença Open Source.</p>
+        <p>Desenvolvedores: Alexander & Felipe</p>
+        <br>
+        <a href="https://github.com/alexanderdimarcus/gest">Ver código fonte no GitHub</a>
+    </footer>
+
+</body>
+</html>
